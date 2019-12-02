@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="ru"> <!--<![endif]-->
+{% load static %}
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Заголовок</title>
+	<meta name="description" content="">
+
+	<!-- Bootstrap v3.3.4 Grid Styles -->
+	<link rel="stylesheet" href="{% static 'mainApp/css/style.css' %}" > <!-- в джанго будет так  <link rel="stylesheet" href="{% static "my_app/css/style.css" %}" >-->
+	<link rel="stylesheet" href="{% static 'mainApp/css/header.min.css' %}">
+	<link rel="stylesheet" href="{% static 'mainApp/css/main.min.css' %}">
+	<!-- Header CSS (First Sections of Website: paste after release from _header.min.css here) -->
+	<style></style>
+
+	<!-- Load CSS Compilled without JS -->
+	<noscript>
+		<link rel="stylesheet" href="{% static 'mainApp/_optimized_gulp_sass/_main.min.css' %}">
+	</noscript>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="shortcut icon" href="{% static 'mainApp/img/favicon/favicon.ico' %}" type="image/x-icon">
+	<link rel="apple-touch-icon" href="{% static 'mainApp/img/favicon/apple-touch-icon.png' %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'mainApp/img/favicon/apple-touch-icon-72x72.png' %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'mainApp/img/favicon/apple-touch-icon-114x114.png' %}">
+
+</head>
+
+<body class="isnohome">
+
+	<header class="main-head">
+
+		<div class="container">
+			<div class="row">
+
+				<div class="mnu-line clearfix">
+
+					<div class="col-lg-2 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+					</div>
+					<div class="col-lg-3 col-lg-push-7 col-md-6 col-sm-6 col-xs-12">
+						<a href="#" class="toggle-mnu hidden-lg"><span></span></a>
+					</div>
+					<div class="col-sm-7 col-md-pull-3">
+
+						<nav class="main-mnu hidden-md hidden-sm hidden-xs">
+							<ul>
+								<li class="active"><a href="/">Главная</a></li>
+								<li><a href="{% url 'newsPage' %}">Новости</a></li>
+								<li><a href="#">Онлайн-курсы</a></li>
+								<li><a href="{% url 'test' %}">Тесты</a></li>
+								<li><a href="{% url 'feedback' %}">Помощь</a></li>
+								{% if user.is_authenticated %}
+								<li>{{user.username}}</li>
+								<li><a href="{% url 'logout' %}">Выйти</a></li>
+								{% else %}
+								<li><a href="{% url 'login' %}">Войти</a></li>
+								<li><a href="{% url 'register' %}">Регистрация</a></li>
+								{% endif %}
+							</ul>
+						</nav>
+
+					</div>
+
+					<div class="col-xs-12">
+
+						<nav class="main-mnu hidden-mnu hidden-lg clearfix">
+							<ul>
+								<li class="active"><a href="{% url 'index' %}">Главная</a></li>
+								<li><a href="{% url 'newsPage' %}">Новости</a></li>
+								<li><a href="#">Онлайн-курсы</a></li>
+								<li><a href="{% url 'test' %}">Тесты</a></li>
+								<li><a href="{% url 'feedback' %}">Помощь</a></li>
+								{% if user.is_authenticated %}
+								<li>{{user.username}}</li>
+								<li><a href="{% url 'logout' %}">Выйти</a></li>
+								{% else %}
+								<li><a href="{% url 'login' %}">Войти</a></li>
+								<li><a href="{% url 'register' %}">Регистрация</a></li>
+								{% endif %}
+							</ul>
+						</nav>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	<section class="page" style="margin-left: 150px;">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-sm-8">
+
+					<article>
+
+						<div class="row" style="text-align: center;">
+							<div class="col-md-2">
+							</div>
+							<div class="col-md-10">
+								<h1>Регистрация</h1>
+									<form action="" method="post">
+									{% csrf_token %}
+									{{ form.as_p }}
+									<input type="submit" value="Зарегистрировать">
+									</form>
+								</div>
+						</div>
+					
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+		<section class="s-wide s-gray s-callback">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2>Мы на твоих любимых платформах</h2>
+					<h3>Мы стараемся держать тебя в курсе последних изменений у нас и в мире программирование.</h3>
+				</div>
+				<div class="col-sm-4">
+					<div class="item-vertical-2">
+						<div class="rounded-img-wrap">
+							<img src="{%static 'mainApp/img/other/insta.png'%}" alt="Alt">
+						</div>
+						<h3>Следите за нами в <li class="active"><a href="#">INSTAGRAM</a></li></h3>
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="item-vertical-2">
+						<div class="rounded-img-wrap">
+							<img src="{%static 'mainApp/img/other/blog.jpg'%}" alt="Alt">
+						</div>
+						<h3><li class="active"><a href="#">НАШ БЛОГ</a></li> о программирование</h3>
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+
+					<div class="item-vertical-2">
+						<div class="rounded-img-wrap">
+							<img src="{%static 'mainApp/img/other/member3.png'%}" alt="Alt">
+						</div>
+						<h3>СТРАНИЦА НА <li class="active"><a href="#">Facebook</a>
+						</li></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="main-foot">
+		
+		<div class="container">
+			<div class="row">
+
+				<div class="mnu-line clearfix">
+
+					<div class="col-lg-2 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+					</div>
+					<div class="col-lg-3 col-lg-push-7 col-md-6 col-sm-6 col-xs-12">
+						<a href="#" class="toggle-mnu hidden-lg"><span></span></a>
+					</div>
+					<div class="col-sm-7 col-md-pull-3">
+
+						<nav class="main-mnu hidden-md hidden-sm hidden-xs">
+							<ul>
+								<li class="active"><a href="/">Главная</a></li>
+								<li><a href="{% url 'newsPage' %}">Новости</a></li>
+								<li><a href="#">Онлайн-курсы</a></li>
+								<li><a href="{% url 'test' %}">Тесты</a></li>
+								<li><a href="{% url 'feedback' %}">Помощь</a></li>
+								{% if user.is_authenticated %}
+								<li>{{user.username}}</li>
+								<li><a href="{% url 'logout' %}">Выйти</a></li>
+								{% else %}
+								<li><a href="{% url 'login' %}">Войти</a></li>
+								<li><a href="{% url 'register' %}">Регистрация</a></li>
+								{% endif %}
+							</ul>
+						</nav>
+
+					</div>
+
+					<div class="col-xs-12">
+
+						<nav class="main-mnu hidden-mnu hidden-lg clearfix">
+							<ul>
+								<li class="active"><a href="{% url 'index' %}">Главная</a></li>
+								<li><a href="{% url 'newsPage' %}">Новости</a></li>
+								<li><a href="#">Онлайн-курсы</a></li>
+								<li><a href="{% url 'test' %}">Тесты</a></li>
+								<li><a href="{% url 'feedback' %}">Помощь</a></li>
+								{% if user.is_authenticated %}
+								<li>{{user.username}}</li>
+								<li><a href="{% url 'logout' %}">Выйти</a></li>
+								{% else %}
+								<li><a href="{% url 'login' %}">Войти</a></li>
+								<li><a href="{% url 'register' %}">Регистрация</a></li>
+								{% endif %}
+							</ul>
+						</nav>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	</footer>
+
+	<div class="hidden">
+		
+		<form id="callback" class="contact-form form-callback">
+
+			<div class="success">
+				<p>Спасибо за заявку!</p>
+			</div>
+
+			<input type="hidden" name="admin-data">
+
+			<div class="contact-form-head">
+				<h4>Оставить заявку</h4>
+				<p>Оставьте заявку и мы свяжемся с вами в течение 20 минут.</p>
+			</div>
+
+			<label>
+				<span>Ваше имя:</span>
+				<input type="text" name="Имя" placeholder="Ваше имя...">
+			</label>
+
+			<label>
+				<span>Ваш телефон:</span>
+				<input type="text" name="Телефон" placeholder="Ваш телефон..." required>
+			</label>
+
+			<div class="text-center">
+				<button class="button button-small">Отправить</button>
+			</div>
+
+		</form>
+
+	</div>
+
+	<!--[if lt IE 9]>
+	<script src="libs/html5shiv/es5-shim.min.js"></script>
+	<script src="libs/html5shiv/html5shiv.min.js"></script>
+	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
+	<script src="libs/respond/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- Load CSS -->
+	<script>
+		function loadCSS(hf) {
+			var ms=document.createElement("link");ms.rel="stylesheet";
+			ms.href=hf;document.getElementsByTagName("head")[0].appendChild(ms);
+		}
+		loadCSS("css/header.min.css"); //Header Styles (compress & paste to header after release)
+		loadCSS("css/main.min.css");   //User Styles + Media Queries
+	</script>
+
+	<!-- Load Scripts -->
+	<script>var scr = {"scripts":[
+		{"src" : "js/libs.js", "async" : false},
+		{"src" : "js/common.js", "async" : false}
+		]};!function(t,n,r){"use strict";var c=function(t){if("[object Array]"!==Object.prototype.toString.call(t))return!1;for(var r=0;r<t.length;r++){var c=n.createElement("script"),e=t[r];c.src=e.src,c.async=e.async,n.body.appendChild(c)}return!0};t.addEventListener?t.addEventListener("load",function(){c(r.scripts);},!1):t.attachEvent?t.attachEvent("onload",function(){c(r.scripts)}):t.onload=function(){c(r.scripts)}}(window,document,scr);
+	</script>
+
+</body>
+</html>
