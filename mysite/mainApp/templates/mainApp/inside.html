@@ -146,12 +146,18 @@
 				<h2>Задача №{{forloop.counter}}. {{task.topic}}
 				<br> 
 				Уровень сложности: {{ task.difficulty }}</h2>
-				<p style="text-align: center">{{ task.description }}</p>
-				<h1>{{ task.f_description }}</h1>
+				<h3 style="text-align: center">{{ task.s_description }}</h3>
+				<h1 style="text-align: center;">{{ task.f_description }}</h1>
+				{% if task.taskImage %}
+				<div>
+					<img src="{{ task.taskImage.url }}" width="1000" height="300">
+				</div>
+				{% endif %}
+				<img src="{{ task.ioImage.url }}" width="1000" height="300">
 			</div>
 
 			<div class="text-center">
-				<button class="button button-small">Решить</button>
+				<a href="https://www.onlinegdb.com/online_python_compiler"><button class="button button-small">Решить</button></a>
 			</div>
 		</div>
 	</section>

@@ -29,6 +29,9 @@ class RequestRegistration(models.Model):
 	contact_number = models.TextField(max_length=15)
 	service_type = models.ForeignKey(Course, on_delete=models.CASCADE)
 
+	def __str__(self):
+		return self.name + " " + self.contact_number
+
 class Task(models.Model):
 	EASY = '1. Легкий'
 	MEDIUM = '2. Средний'
@@ -43,6 +46,8 @@ class Task(models.Model):
 	difficulty = models.CharField(max_length=50, choices=DIFFICULTY, default=EASY)
 	s_description = models.CharField('Наименование задачи', max_length=200)
 	f_description = models.TextField('Описание задачи', max_length=1000, default="Fully")
+	taskImage = models.ImageField(upload_to='images/', blank=True)
+	ioImage = models.ImageField(upload_to='images/', default='/static/mainApp/img/iodefault.png')
 
 	def __str__(self):
 		return self.topic
