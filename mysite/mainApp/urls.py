@@ -11,4 +11,4 @@ urlpatterns = [
     path('news/submit_request', views.requests_handle, name='submit_request'),
     path('test/', views.test, name='test'),
     path('feedback/', views.feedback, name='feedback'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
